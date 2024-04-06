@@ -1,12 +1,13 @@
 import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
+import { endpoint, azureApiKey } from "../config.js";
 
-const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
+//const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
+//const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 export const askQuestion = async (req, res) => {
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-    const deployment_name = 'gpt-3.5-turbo';
-    
+    const deployment_name = 'gpt-35-turbo';
+
     try {
         const userQuestion = req.body.question;
         const messages = [
