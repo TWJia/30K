@@ -12,6 +12,22 @@ client = AzureOpenAI(
     
 deployment_name='gpt-35-turbo' #This will correspond to the custom name you chose for your deployment when you deployed a model. Use a gpt-35-turbo-instruct deployment. 
 
+
+
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo", # model = "deployment_name".
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+
+
 # Send a completion call to generate an answer
 '''
 print('Sending a test completion job')
@@ -34,16 +50,3 @@ print(start_phrase+response.choices[0].text)
 # )
 
 # print(response.choices[0].message.content)
-
-
-response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response.choices[0].message.content)
