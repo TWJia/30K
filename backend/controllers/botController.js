@@ -1,23 +1,20 @@
-import { AzureOpenAI } from 'openai';
+import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
 
-const client = new AzureOpenAI({
-    api_key: process.env.AZURE_OPENAI_API_KEY,
-    api_version: "2024-02-01",
-    azure_endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-});
-
-const deployment_name = 'gpt-3.5-turbo';
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 export const askQuestion = async (req, res) => {
+    const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
+    const deployment_name = 'gpt-3.5-turbo';
+    
     try {
         const userQuestion = req.body.question;
-        const response = await client.chat.completions.create({
-            model: deployment_name,
-            messages: [
-                { "role": "system", "content": "You are a helpful assistant." },
-                { "role": "user", "content": userQuestion },
-            ]
-        });
+        const messages = [
+            { "role": "system", "content": "You are a helpful assistant." },
+            { "role": "user", "content": userQuestion },
+        ];
+
+        const response = await client.getChatCompletions(deployment_name, messages);
         res.json({ answer: response.choices[0].message.content });
     } catch (error) {
         console.error('Error:', error);

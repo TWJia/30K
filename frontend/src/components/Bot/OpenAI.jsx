@@ -11,7 +11,7 @@ export default function OpenAI() {
 
     const askQuestion = async () => {
         try {
-          const response = await axios.post('/ask', { question });
+          const response = await axios.post('http://localhost:5555/bot/ask', { question });
           setAnswer(response.data.answer);
         } catch (error) {
           console.error('Error fetching the answer:', error);

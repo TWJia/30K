@@ -1,5 +1,5 @@
 import express from 'express';
-import { askQuestion } from '../controllers/botController';
+import { askQuestion } from '../controllers/botController.js';
 
 const router = express.Router();
 
