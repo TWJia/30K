@@ -1,8 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Test from "./components/Test";
-import Home from "./components/Home";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './logo.svg';
+import './App.css';
 
 export default function App() {
   
@@ -17,3 +14,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
