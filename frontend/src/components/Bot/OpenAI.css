@@ -86,3 +86,13 @@
 .send-button:hover {
     background-color: black;
 }
+
+.close-button {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
