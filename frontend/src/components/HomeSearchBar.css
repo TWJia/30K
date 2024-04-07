@@ -1,0 +1,20 @@
+.row {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+  }
+
+.container {
+    display: flex;
+    width: 75%;
+    height: 100vh; /* Set the container to be as tall as the viewport */
+  }
+
+.search-bar {
+    width: calc(100% - 10px); /* Make the search bar fill the entire width of the box minus padding */
+    height: 40px; /* Adjust the height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 5px; /* Padding inside the search bar */
+    box-sizing: content-box; /* Include padding and border in the total width/height */
+    border-radius: 20px;
+    margin-top: 23px;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+  import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import HomeIcon from "@mui/icons-material/Home";
@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link to="/Resources" className="nav-links">
             Resources
           </Link>
-          <Link to="/bookMark" className="nav-links">
+          <Link to="/BookMarks" className="nav-links">
             <BookmarkIcon className="icon" style={{ fontSize: 30, color: "red", marginRight: "0px" }} />
           </Link>
         </div>
